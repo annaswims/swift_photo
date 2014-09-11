@@ -28,7 +28,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHO-XL-RxQ">
-                                <rect key="frame" x="99" y="478" width="122" height="67"/>
+                                <rect key="frame" x="99" y="423" width="122" height="67"/>
                                 <state key="normal" image="cam-photo-btn">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

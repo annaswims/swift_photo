@@ -15,6 +15,7 @@
 		C9206C6819C0FAE200F613CE /* ElevenChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9206C6719C0FAE200F613CE /* ElevenChatTests.swift */; };
 		C9206C7619C1077100F613CE /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9206C7519C1077100F613CE /* ColorViewController.swift */; };
 		C9544D9B19C1E556003742C7 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9544D9A19C1E556003742C7 /* CameraViewController.swift */; };
+		C965431819C2204F00003447 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C965431719C2204F00003447 /* DropboxSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		C9206C6719C0FAE200F613CE /* ElevenChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevenChatTests.swift; sourceTree = "<group>"; };
 		C9206C7519C1077100F613CE /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorViewController.swift; path = ../ColorViewController.swift; sourceTree = "<group>"; };
 		C9544D9A19C1E556003742C7 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		C965431719C2204F00003447 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
+		C965431919C221A200003447 /* ElevenChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ElevenChat-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C965431819C2204F00003447 /* DropboxSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				C9206C7519C1077100F613CE /* ColorViewController.swift */,
+				C965431619C2204F00003447 /* frameworks */,
 				C9206C5119C0FAE200F613CE /* AppDelegate.swift */,
 				C9206C5319C0FAE200F613CE /* RootViewController.swift */,
 				C9206C5519C0FAE200F613CE /* Main.storyboard */,
@@ -97,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				C9206C5019C0FAE200F613CE /* Info.plist */,
+				C965431919C221A200003447 /* ElevenChat-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -117,6 +123,14 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		C965431619C2204F00003447 /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C965431719C2204F00003447 /* DropboxSDK.framework */,
+			);
+			path = frameworks;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -345,10 +359,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/frameworks",
+				);
 				INFOPLIST_FILE = ElevenChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ElevenChat/ElevenChat-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -357,10 +378,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/frameworks",
+				);
 				INFOPLIST_FILE = ElevenChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ElevenChat/ElevenChat-Bridging-Header.h";
 			};
 			name = Release;
 		};
