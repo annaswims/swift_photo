@@ -13,6 +13,8 @@
 		C9206C5919C0FAE200F613CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9206C5819C0FAE200F613CE /* Images.xcassets */; };
 		C9206C5C19C0FAE200F613CE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9206C5A19C0FAE200F613CE /* LaunchScreen.xib */; };
 		C9206C6819C0FAE200F613CE /* ElevenChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9206C6719C0FAE200F613CE /* ElevenChatTests.swift */; };
+		C9206C7619C1077100F613CE /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9206C7519C1077100F613CE /* ColorViewController.swift */; };
+		C9544D9B19C1E556003742C7 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9544D9A19C1E556003742C7 /* CameraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		C9206C6119C0FAE200F613CE /* ElevenChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElevenChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9206C6619C0FAE200F613CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9206C6719C0FAE200F613CE /* ElevenChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevenChatTests.swift; sourceTree = "<group>"; };
+		C9206C7519C1077100F613CE /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorViewController.swift; path = ../ColorViewController.swift; sourceTree = "<group>"; };
+		C9544D9A19C1E556003742C7 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +81,14 @@
 		C9206C4E19C0FAE200F613CE /* ElevenChat */ = {
 			isa = PBXGroup;
 			children = (
+				C9206C7519C1077100F613CE /* ColorViewController.swift */,
 				C9206C5119C0FAE200F613CE /* AppDelegate.swift */,
 				C9206C5319C0FAE200F613CE /* RootViewController.swift */,
 				C9206C5519C0FAE200F613CE /* Main.storyboard */,
 				C9206C5819C0FAE200F613CE /* Images.xcassets */,
 				C9206C5A19C0FAE200F613CE /* LaunchScreen.xib */,
 				C9206C4F19C0FAE200F613CE /* Supporting Files */,
+				C9544D9A19C1E556003742C7 /* CameraViewController.swift */,
 			);
 			path = ElevenChat;
 			sourceTree = "<group>";
@@ -213,7 +219,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9206C5419C0FAE200F613CE /* RootViewController.swift in Sources */,
+				C9544D9B19C1E556003742C7 /* CameraViewController.swift in Sources */,
 				C9206C5219C0FAE200F613CE /* AppDelegate.swift in Sources */,
+				C9206C7619C1077100F613CE /* ColorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +415,7 @@
 				C9206C6D19C0FAE200F613CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9206C6E19C0FAE200F613CE /* Build configuration list for PBXNativeTarget "ElevenChatTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +424,7 @@
 				C9206C7019C0FAE200F613CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Gar-1d-ymK">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Camera-->
         <scene sceneID="NC9-Pf-dFo">
             <objects>
-                <viewController storyboardIdentifier="blueViewController" id="Yi1-dc-Ia4" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cameraViewController" title="Camera" id="Yi1-dc-Ia4" customClass="CameraViewController" customModule="ElevenChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dJc-yt-ZQf"/>
                         <viewControllerLayoutGuide type="bottom" id="EHv-f3-PuN"/>
@@ -15,17 +16,26 @@
                     <view key="view" contentMode="scaleToFill" id="aFR-NW-kVr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3MP-EI-vZa">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="cameraView" destination="aFR-NW-kVr" id="8rr-aC-bhE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="InF-6t-x7e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="465" y="958"/>
+            <point key="canvasLocation" x="439" y="958"/>
         </scene>
-        <!--View Controller-->
+        <!--Red-->
         <scene sceneID="jRc-1g-Tpf">
             <objects>
-                <viewController storyboardIdentifier="redViewController" id="9S8-BB-6B1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="redViewController" title="Red" id="9S8-BB-6B1" customClass="RedViewCotroller" customModule="ElevenChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DnF-dy-elP"/>
                         <viewControllerLayoutGuide type="bottom" id="UvI-th-y1J"/>
@@ -43,15 +53,15 @@
         <!--Root View Controller-->
         <scene sceneID="bH6-E4-Vow">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="Gar-1d-ymK" customClass="RootViewController" customModule="ElevenChat" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Gar-1d-ymK" customClass="RootViewController" customModule="ElevenChat" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FET-ac-iIj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="81" y="260"/>
         </scene>
-        <!--View Controller-->
+        <!--Green-->
         <scene sceneID="jdN-lJ-KhE">
             <objects>
-                <viewController storyboardIdentifier="greenViewController" id="cpb-IE-THN" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="greenViewController" title="Green" id="cpb-IE-THN" customClass="GreenViewCotroller" customModule="ElevenChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BGE-dR-Qm3"/>
                         <viewControllerLayoutGuide type="bottom" id="iDP-o0-sAF"/>

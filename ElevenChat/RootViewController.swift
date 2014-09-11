@@ -10,27 +10,21 @@ import UIKit
 
 class RootViewController: UIPageViewController, UIPageViewControllerDataSource {
   
-  var redViewController : UIViewController!
-  var blueViewController : UIViewController!
-  var greenViewController : UIViewController!
+  var redViewController : RedViewCotroller!
+  var cameraViewController :  CameraViewController!
+  var greenViewController : GreenViewCotroller!
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     self.dataSource = self
+  
+    self.redViewController   = self.storyboard?.instantiateViewControllerWithIdentifier("redViewController") as? RedViewCotroller
+    self.cameraViewController  = self.storyboard?.instantiateViewControllerWithIdentifier("cameraViewController") as? CameraViewController
+    self.greenViewController = self.storyboard?.instantiateViewControllerWithIdentifier("greenViewController") as? GreenViewCotroller
     
-    self.redViewController  = self.storyboard?.instantiateViewControllerWithIdentifier("redViewController") as? UIViewController
-    self.redViewController.title = "Red"
-    
-    
-    self.blueViewController  = self.storyboard?.instantiateViewControllerWithIdentifier("blueViewController") as? UIViewController
-    self.blueViewController.title = "Blue"
-    
-     self.greenViewController  = self.storyboard?.instantiateViewControllerWithIdentifier("greenViewController") as? UIViewController
-    self.greenViewController.title = "Green"
-    
-    var startingViewControllers : NSArray = [self.blueViewController]
+    var startingViewControllers : NSArray = [self.cameraViewController]
     
     self.setViewControllers(startingViewControllers, direction: .Forward, animated: false, completion: nil)
     
@@ -40,10 +34,10 @@ class RootViewController: UIPageViewController, UIPageViewControllerDataSource {
     switch viewController.title! {
     case "Red":
       return nil
-    case "Blue":
+    case "Camera":
       return redViewController
     case "Green":
-      return blueViewController
+      return cameraViewController
     default:
       return nil
     }
@@ -53,16 +47,15 @@ class RootViewController: UIPageViewController, UIPageViewControllerDataSource {
   func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
     switch viewController.title! {
     case "Red":
-       return blueViewController
-    case "Blue":
-     return greenViewController
+      return cameraViewController
+    case "Camera":
+      return greenViewController
     case "Green":
       return nil
     default:
       return nil
     }
-   
+    
   }
-
+  
 }
-
