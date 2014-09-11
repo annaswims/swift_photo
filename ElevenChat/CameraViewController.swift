@@ -73,8 +73,8 @@ class CameraViewController : UIViewController {
       if captureSession.canAddOutput(stillImageOutput){
         captureSession.addOutput(stillImageOutput)
       }
-    
-    
+      
+      
       //display in UI
       previewLayer  = AVCaptureVideoPreviewLayer(session: captureSession)
       
@@ -83,7 +83,7 @@ class CameraViewController : UIViewController {
       previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
       
       captureSession.startRunning()
-      }
+    }
   }
   
   @IBAction func flipCamera(sender: UIButton) {
@@ -102,13 +102,58 @@ class CameraViewController : UIViewController {
     }else{
       //show sad panda
     }
-
+    
     captureSession.commitConfiguration()
   }
   
   @IBAction func takePhoto(sender: UIButton) {
+    if let stillOutput = self.stillImageOutput {
+      // we do this on another thread so that we don't hang the UI
+      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        //find the video connection
+        var videoConnection : AVCaptureConnection?
+        for connecton in stillOutput.connections {
+          //find a matching input port
+          for port in connecton.inputPorts!{
+            if port.mediaType == AVMediaTypeVideo {
+              videoConnection = connecton as? AVCaptureConnection
+              break //for port
+            }
+          }
+          
+          if videoConnection  != nil {
+            break// for connections
+          }
+        }
+        if videoConnection  != nil {
+          stillOutput.captureStillImageAsynchronouslyFromConnection(videoConnection){
+            (imageSampleBuffer : CMSampleBuffer!, _) in
+            
+            let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageSampleBuffer)
+            self.didTakePhoto(imageData)
+          }
+        }
+      }
+    }
+  }
+  
+  
+  func didTakePhoto(imageData: NSData){
+    //Example 1: if you wante to show a thumbnail in the UI
+    let images = UIImage(data: imageData)
+    
+    // if you want to save the image to  a file...
+    var formatter = NSDateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"
+    let prefix: String = formatter.stringFromDate(NSDate())
+    let fileName = "\(prefix).jpg"
+    let tmpDirectory = NSTemporaryDirectory()
+    let snapFileName = tmpDirectory.stringByAppendingPathComponent(fileName)
+    imageData.writeToFile(snapFileName, atomically: true)
+  
     
   }
+  
   
 }
 
