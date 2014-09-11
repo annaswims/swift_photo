@@ -11,6 +11,7 @@ import AVFoundation
 
 class CameraViewController : UIViewController {
   @IBOutlet var cameraView: UIView!
+  
   // Our global session
   private let captureSession = AVCaptureSession()
   //The camera, if found
@@ -51,9 +52,8 @@ class CameraViewController : UIViewController {
   
   func beginSession() {
     var err : NSError? = nil
-    
-//    AVCaptureDeviceInput(device: <#AVCaptureDevice!#>, error: <#NSErrorPointer#>)
     let videoCapture = AVCaptureDeviceInput(device: captureDevice, error: &err)
+    
     if err != nil {
       println("Couldn't start ession : \(err?.description)")
       return
@@ -63,26 +63,51 @@ class CameraViewController : UIViewController {
       captureSession.addInput(videoCapture)
     }
     
-    if !captureSession.running{
+    if !captureSession.running {
       //setup jpeg output
       stillImageOutput = AVCaptureStillImageOutput()
-      let outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG  ]
+      let outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG]
       stillImageOutput!.outputSettings = outputSettings
       
       //add output to session
       if captureSession.canAddOutput(stillImageOutput){
         captureSession.addOutput(stillImageOutput)
       }
+    
+    
+      //display in UI
+      previewLayer  = AVCaptureVideoPreviewLayer(session: captureSession)
+      
+      cameraView.layer.addSublayer(previewLayer)
+      previewLayer?.frame  = cameraView.layer.frame
+      previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+      
+      captureSession.startRunning()
+      }
+  }
+  
+  @IBAction func flipCamera(sender: UIButton) {
+    //Flip the camera...
+    //When Session is running to make change you must...
+    captureSession.beginConfiguration()
+    let currentInput = captureSession.inputs[0] as AVCaptureInput
+    captureSession.removeInput(currentInput)
+    
+    //toggle the camera...
+    cameraPosition = cameraPosition == .Back ? .Front : .Back
+    
+    //find other camera..
+    if findCamera(cameraPosition){
+      beginSession()
+    }else{
+      //show sad panda
     }
+
+    captureSession.commitConfiguration()
+  }
+  
+  @IBAction func takePhoto(sender: UIButton) {
     
-    //display in UI
-    previewLayer  = AVCaptureVideoPreviewLayer(session: captureSession)
-    
-    cameraView.layer.addSublayer(previewLayer)
-    previewLayer?.frame  = cameraView.layer.frame
-    previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-    
-    captureSession.startRunning()
   }
   
 }
